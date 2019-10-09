@@ -1,2 +1,5 @@
-# index_neural_nets
-Benchmark Platform for index Neural Nets
+# Benchmark Platform for Index Neural Nets
+
+## Directory Structure
+
+
