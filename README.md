@@ -7,6 +7,7 @@
     │   └── uniform            # Uniform Dataset
     |── res                    # Results Directory
     |   └──uniform             # Uniform Dataset
-    └── mdls                   # Models Directory     
+    └── mdls                   # Models Directory   
+        └──json                # Neural Nets Json 
     
 
