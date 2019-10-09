@@ -1,0 +1,13 @@
+{
+    "loss":"mse",
+    "learning-rate": 0.1,
+    "momentum":0.9,
+    "epochs": 20000,
+    "batch-size":64,
+    "verbose":1,
+    "val-split":0.3,
+    "monitor": "loss",
+    "patience": 5,
+    "chk-dir": "ckpt_models",
+    "log-dir": "logs"
+}

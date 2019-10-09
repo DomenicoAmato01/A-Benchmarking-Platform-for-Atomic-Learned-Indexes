@@ -1,0 +1,23 @@
+ƒ®kž§{"class_name": "Sequential", "config": {"layers": [{"class_name": "Dense", "config": {"activation": "linear", "activity_regularizer": null, "batch_input_shape": [null, 64], "bias_constraint": null, "bias_initializer": {"class_name": "Zeros", "config": {"dtype": "float32"}}, "bias_regularizer": null, "dtype": "float32", "kernel_constraint": null, "kernel_initializer": {"class_name": "GlorotUniform", "config": {"dtype": "float32", "seed": null}}, "kernel_regularizer": {"class_name": "L1L2", "config": {"l1": 0.0, "l2": 9.999999747378752e-05}}, "name": "dense", "trainable": true, "units": 1, "use_bias": true}}, {"class_name": "LeakyReLU", "config": {"alpha": 0.05000000074505806, "dtype": "float32", "name": "leaky_re_lu", "trainable": true}}], "name": "sequential"}}…dêÕ{"class_name": "InputLayer", "config": {"batch_input_shape": [null, 64], "dtype": "float32", "name": "dense_input", "sparse": false}}²5÷}â{"class_name": "Dense", "config": {"activation": "linear", "activity_regularizer": null, "batch_input_shape": [null, 64], "bias_constraint": null, "bias_initializer": {"class_name": "Zeros", "config": {"dtype": "float32"}}, "bias_regularizer": null, "dtype": "float32", "kernel_constraint": null, "kernel_initializer": {"class_name": "GlorotUniform", "config": {"dtype": "float32", "seed": null}}, "kernel_regularizer": {"class_name": "L1L2", "config": {"l1": 0.0, "l2": 9.999999747378752e-05}}, "name": "dense", "trainable": true, "units": 1, "use_bias": true}}ƒ¢Üº{"class_name": "LeakyReLU", "config": {"alpha": 0.05000000074505806, "dtype": "float32", "name": "leaky_re_lu", "trainable": true}}ãí
+>Ìby½k@¼ý$¾âŸØ;ŽŠ¥=Ïæ©½Øtn=ç¤N½ûw7¾‚Ûˆ¾Á¨Ü=Ø%½?‰¬=¥F\>Š!‹>j:W>³ê=sý~>ó›¼‹@¾­Å@½EÕ8¾½¼=ÒÜŒ>’Ó=¿¢‡>ƒ¥?½ëÆ“¾°<&=æÐ’>³ëŽ¾
+\c>Š'?£^}>\Dþ=uKƒ=Þøþ<Ì‡<ÍH<"~£;nÞ0;2…:ôØ	¹˜D<:†m;ÔƒºÃWºTAú¹ÝÇ¸Mu…¹µ(º[¡7–&»tª	º¾û´¸Á_U:ˆô'96-:¨«Þº:‡ºáŠ:†„À9 Û×¸oÐÅ;/™Qe
+x
+layer-0
+layer_with_weights-0
+layer-1
+layer-25
+OBJECT_CONFIG_JSON/.ATTRIBUTES/OBJECT_CONFIG_JSON
+><
+OBJECT_CONFIG_JSON&layer-0/.ATTRIBUTES/OBJECT_CONFIG_JSON
+a
+
+kernel
+biasI
+OBJECT_CONFIG_JSON3layer_with_weights-0/.ATTRIBUTES/OBJECT_CONFIG_JSON
+><
+OBJECT_CONFIG_JSON&layer-2/.ATTRIBUTES/OBJECT_CONFIG_JSON
+XV
+VARIABLE_VALUEdense/kernel6layer_with_weights-0/kernel/.ATTRIBUTES/VARIABLE_VALUE
+TR
+VARIABLE_VALUE
+dense/bias4layer_with_weights-0/bias/.ATTRIBUTES/VARIABLE_VALUE
