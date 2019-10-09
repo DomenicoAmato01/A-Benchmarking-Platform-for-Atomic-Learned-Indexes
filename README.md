@@ -11,6 +11,9 @@
         └──json                # Neural Nets Json 
     
 ## Neural Networks
+### Create Datasets
+### Train NN
+### Query Scripts
 
 ## Datastructures
 
