@@ -15,5 +15,5 @@
 ### Train NN
 ### Query Scripts
 
-## Datastructures
+## Standard Data Structures
 
