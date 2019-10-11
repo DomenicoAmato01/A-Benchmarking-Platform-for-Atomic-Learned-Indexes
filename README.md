@@ -18,7 +18,8 @@
 ## Standard Data Structures
 ### Paco
 An order-preserving minimal perfect hash function , that maps bijectively a set of ordered keys to their ordinal position position in a given list. It assumes that keys to be hashed are ordered. The source code is written in Java and it exploits the [DSI Utilities](http://dsiutils.di.unimi.it/).
-### LCP
+### LCP 
+A monotone minimal perfect hash function that map the keys of a lexicographically sorted set to its ordinal position. It assumes that keys to be hashed are ordered. The source code is written in Java and it exploits the [DSI Utilities](http://dsiutils.di.unimi.it/).
 ### B+tree
 ### CSS Tree
 ### Self Adjusting Binary Tree
