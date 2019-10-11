@@ -1,4 +1,4 @@
-# Benchmark Platform for Index Neural Nets
+# Benchmarking Platform for Index Neural Nets
 
 ## Directory Structure
     .
