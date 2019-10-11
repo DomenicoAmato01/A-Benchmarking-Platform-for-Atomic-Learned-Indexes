@@ -32,18 +32,18 @@ def max_error(set_dim):
 
 #Set Argument Parser for input information
 parser = argparse.ArgumentParser(description='Train NN for Datastructure index')
-parser.add_argument('-i', '--input', dest="inputFile", default="input.h5",
+parser.add_argument('-i', '--input', dest="inputFile", default="rsc/uniform/",
                     help='Input file name')
-parser.add_argument('-id', '--inputDir', dest="inputDir", default="input.h5",
+parser.add_argument('-id', '--inputDir', dest="inputDir", default="uni01.query10.bin.h5",
 help='Input file path')
-parser.add_argument('-o', '--output', dest="outputPath", default="output.h5",
+parser.add_argument('-o', '--output', dest="outputPath", default="res/uniform/query",
                     help='Output file path')
 parser.add_argument('-m', '--model', dest="models", nargs="+", default="1", type=int, choices=range(1, 4),
                     help='Model numbers: 1 -> No hidden Layer(Perceptron); 2 -> One hidden layer with 256 units; 3 -> Two hidden layer with 256 units')
 parser.add_argument('-p', '--params', dest="params", default="params.json",
                     help='Params file path with file name')
-parser.add_argument('-perc', '--percentage', dest="percList", nargs="+", default="100",
-                    help='Params file path with file name')
+#parser.add_argument('-perc', '--percentage', dest="percList", nargs="+", default="100",
+#                    help='Params file path with file name')
 
 args = parser.parse_args()
 
@@ -107,10 +107,13 @@ for model in args.models:
         nn_model.summary()
         nn_name="NN3"
         nn_model.load_weights(args.outputPath+"/"+params["chk-dir"]+"/"+nn_name+"/best_model.h5py")
+    
+    else:
+        raise "Model "+model+" not found"
 
-    for perc in args.percList:
+    nn_model.predict()
 
-        print(perc)
+
 '''
         bin_data = []
         labels = []
