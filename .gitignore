@@ -2,3 +2,6 @@ venv
 venv/*
 /rsc/uniform/
 /rsc/uniform/*
+
+/rsc/**/*.csv
+!important/rsc/**/uni01.sorted.csv
