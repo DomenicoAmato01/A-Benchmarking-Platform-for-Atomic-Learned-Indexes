@@ -20,7 +20,8 @@ In order to train Neural Nets and querying data, csv files, containing one eleme
 python [sourcePath]/createBinArray.py [-h] [-i INPUTFILE] [-id INPUTDIR] [-o OUTPUTPATH]
 ```
 
-optional arguments:\n
+```
+optional arguments:  
   -h, --help            show this help message and exit  
   -i INPUTFILE, --input INPUTFILE  
                         Input file name   
@@ -31,7 +32,7 @@ optional arguments:\n
   -o OUTPUTPATH, --output OUTPUTPATH  
                         Output file path and file name  
                         default = 'rsc/uniform/uni01.sorted.bin.h5'  
-
+```
 
 ### Train NN
 ### Query Scripts
