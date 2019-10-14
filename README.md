@@ -20,17 +20,17 @@ In order to train Neural Nets and querying data, csv files, containing one eleme
 python [sourcePath]/createBinArray.py [-h] [-i INPUTFILE] [-id INPUTDIR] [-o OUTPUTPATH]
 ```
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -i INPUTFILE, --input INPUTFILE
-                        Input file name 
-                        default = 'uni01.sorted.csv'
-  -id INPUTDIR, --inputDir INPUTDIR
-                        Input file path
-                        deafult = 'rsc/uniform/'
-  -o OUTPUTPATH, --output OUTPUTPATH
-                        Output file path and file name
-                        default = 'rsc/uniform/uni01.sorted.bin.h5'
+optional arguments:\n
+  -h, --help            show this help message and exit\n
+  -i INPUTFILE, --input INPUTFILE\n
+                        Input file name \n
+                        default = 'uni01.sorted.csv'\n
+  -id INPUTDIR, --inputDir INPUTDIR\n
+                        Input file path\n
+                        deafult = 'rsc/uniform/'\n
+  -o OUTPUTPATH, --output OUTPUTPATH\n
+                        Output file path and file name\n
+                        default = 'rsc/uniform/uni01.sorted.bin.h5'\n
 
 
 ### Train NN
