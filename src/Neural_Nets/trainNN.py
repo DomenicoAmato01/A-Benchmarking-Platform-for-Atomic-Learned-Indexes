@@ -30,15 +30,15 @@ def max_error(set_dim):
 
 #Set Argument Parser for input information
 parser = argparse.ArgumentParser(description='Train NN for Datastructure index')
-parser.add_argument('-i', '--input', dest="inputFile", default="uni01.sorted.bin.h5",
+parser.add_argument('-i', '--input', dest="inputFile", default="uni01.sorted.bin2.h5",
                     help='Input file name')
 parser.add_argument('-id', '--inputDir', dest="inputDir", default="rsc/uniform/",
 help='Input file path')
 parser.add_argument('-o', '--output', dest="outputPath", default="res/uniform/",
                     help='Output file path')
-parser.add_argument('-m', '--model', dest="models", nargs="+", default="1", type=int, choices=range(1, 4),
+parser.add_argument('-m', '--model', dest="models", nargs="+", default=[1], type=int, choices=range(1, 4),
                     help='Model numbers: 1 -> No hidden Layer(Perceptron); 2 -> One hidden layer with 256 units; 3 -> Two hidden layer with 256 units')
-parser.add_argument('-p', '--params', dest="params", default="params.json",
+parser.add_argument('-p', '--params', dest="params", default="mdls/params.json",
                     help='Params file path with file name')
 
 args = parser.parse_args()
@@ -56,8 +56,8 @@ bin_data=[]
 with h5py.File(args.inputDir+args.inputFile,'r') as f:
     data = f.get('Sb') 
     bin_data = np.array(data, dtype=np.bool) # For converting to numpy array
-bin_data = np.transpose(bin_data)
-bin_data = np.flip(bin_data,axis=1)
+#bin_data = np.transpose(bin_data)
+#bin_data = np.flip(bin_data,axis=1)
 dim_set = len(bin_data)
 print(dim_set)
 print(bin_data)
@@ -71,7 +71,7 @@ labels = np.reshape(labels, (-1, 1))
 for model in args.models:
     #Load models from json
     if(model == 1):
-        json_file = open("Models/json/NN1.json", "r")
+        json_file = open("mdls/json/NN1.json", "r")
         loaded_model = json_file.read()
         json_file.close()
 
@@ -81,7 +81,7 @@ for model in args.models:
         nn_name="NN1"
 
     elif(model == 2):
-        json_file = open("Models/json/NN2.json", "r")
+        json_file = open("mdls/json/NN2.json", "r")
         loaded_model = json_file.read()
         json_file.close()
 
@@ -90,7 +90,7 @@ for model in args.models:
         nn_model.summary()
         nn_name="NN2"
     elif(model==3):
-        json_file = open("Models/json/NN3.json", "r")
+        json_file = open("mdls/json/NN3.json", "r")
         loaded_model = json_file.read()
         json_file.close()
 
