@@ -16,7 +16,7 @@ parser.add_argument('-i', '--input', dest="inputFile", default="uni01.sorted.csv
                     help='Input file name')
 parser.add_argument('-id', '--inputDir', dest="inputDir", default="rsc/uniform/",
 help='Input file path')
-parser.add_argument('-o', '--output', dest="outputPath", default="rsc/uniform/uni01.sorted.bin2.h5",
+parser.add_argument('-o', '--output', dest="outputPath", default="rsc/uniform/uni01.sorted.bin.h5",
                     help='Output file path and file name')
 
 args = parser.parse_args()

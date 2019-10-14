@@ -30,7 +30,7 @@ def max_error(set_dim):
 
 #Set Argument Parser for input information
 parser = argparse.ArgumentParser(description='Train NN for Datastructure index')
-parser.add_argument('-i', '--input', dest="inputFile", default="uni01.sorted.bin2.h5",
+parser.add_argument('-i', '--input', dest="inputFile", default="uni01.sorted.bin.h5",
                     help='Input file name')
 parser.add_argument('-id', '--inputDir', dest="inputDir", default="rsc/uniform/",
 help='Input file path')
