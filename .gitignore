@@ -1,3 +1,5 @@
 venv
 venv/*
-rsc/**/**
+rsc/uniform/
+
+rsc/uniform/*
