@@ -35,7 +35,7 @@ optional arguments:\n
 
 ### Train NN
 
-Training is written in python using Tensorflow Keras high-level API as neural nets implementation.
+Training is written in python using Tensorflow Keras high-level API as neural nets implementation.  
 There are 3 kind of [models](mdls/json/):
 1. NN0 is a Fully connected net with no hidden layers
 2. NN1 is a fully connected net with 1 hidden layer composed by 256 units
