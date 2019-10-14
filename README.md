@@ -20,8 +20,7 @@ In order to train Neural Nets and querying data, csv files, containing one eleme
 python [sourcePath]/createBinArray.py [-h] [-i INPUTFILE] [-id INPUTDIR] [-o OUTPUTPATH]
 ```
 
-```
-optional arguments:  
+optional arguments:\n
   -h, --help            show this help message and exit  
   -i INPUTFILE, --input INPUTFILE  
                         Input file name   
@@ -32,9 +31,16 @@ optional arguments:
   -o OUTPUTPATH, --output OUTPUTPATH  
                         Output file path and file name  
                         default = 'rsc/uniform/uni01.sorted.bin.h5'  
-```
+
 
 ### Train NN
+
+Training is written in python using Tensorflow Keras high-level API as neural nets implementation.
+There are 3 kind of [models](mdls/json/):
+1. NN0 is a Fully connected net with no hidden layers
+2. NN1 is a fully connected net with 1 hidden layer composed by 256 units
+3. NN2 is a fully connected net with 2 hidden layers composed by 256 units each one
+
 ### Query Scripts
 
 ## Standard Data Structures
