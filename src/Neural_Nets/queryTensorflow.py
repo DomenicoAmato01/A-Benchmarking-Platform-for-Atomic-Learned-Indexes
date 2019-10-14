@@ -40,6 +40,8 @@ parser.add_argument('-o', '--output', dest="outputPath", default="res/uniform/qu
                     help='Output file path')
 parser.add_argument('-m', '--model', dest="models", nargs="+", default="1", type=int, choices=range(1, 4),
                     help='Model numbers: 1 -> No hidden Layer(Perceptron); 2 -> One hidden layer with 256 units; 3 -> Two hidden layer with 256 units')
+parser.add_argument('-md', '--modelsDir', dest="modelsPath", default="mdls/",
+                    help='Params file path with file name')
 parser.add_argument('-p', '--params', dest="params", default="params.json",
                     help='Params file path with file name')
 #parser.add_argument('-perc', '--percentage', dest="percList", nargs="+", default="100",
@@ -49,7 +51,7 @@ args = parser.parse_args()
 
 
 
-json_file = open(args.params, "r")
+json_file = open(args.modelsPath+args.params, "r")
 params_str = json_file.read()
 json_file.close()
 params = json.loads(params_str)
@@ -75,7 +77,7 @@ labels = np.reshape(labels, (-1, 1))
 for model in args.models:
     #Load models from json
     if(model == 1):
-        json_file = open("Models/json/NN1.json", "r")
+        json_file = open(args.modelsPath+"json/NN1.json", "r")
         loaded_model = json_file.read()
         json_file.close()
 
@@ -86,7 +88,7 @@ for model in args.models:
         nn_model.load_weights(args.outputPath+"/"+params["chk-dir"]+"/"+nn_name+"/best_model.h5py")
 
     elif(model == 2):
-        json_file = open("Models/json/NN2.json", "r")
+        json_file = open(args.modelsPath+"json/NN2.json", "r")
         loaded_model = json_file.read()
         json_file.close()
 
@@ -98,7 +100,7 @@ for model in args.models:
 
 
     elif(model==3):
-        json_file = open("Models/json/NN3.json", "r")
+        json_file = open(args.modelsPath+"json/NN3.json", "r")
         loaded_model = json_file.read()
         json_file.close()
 
@@ -107,15 +109,8 @@ for model in args.models:
         nn_model.summary()
         nn_name="NN3"
         nn_model.load_weights(args.outputPath+"/"+params["chk-dir"]+"/"+nn_name+"/best_model.h5py")
-    
-    else:
-        raise "Model "+model+" not found"
-
-    nn_model.predict()
-
 
 '''
-        bin_data = []
         labels = []
         with h5py.File('./Resource/'+distr+'/Query/file'+str(i)+distr+'Query'+perc+'_bin.mat','r') as f:
             data = f.get('Sb') 

@@ -3,6 +3,7 @@
 ## Directory Structure
     .
     ├── src                    # Source Directory
+    |   ├── Neural_Nets        # Neural Nets Scripts          
     │   └── Paco-Lcp           # Paco Lcp
     ├── rsc                    # Resource Directory
     │   └── uniform            # Uniform Dataset
