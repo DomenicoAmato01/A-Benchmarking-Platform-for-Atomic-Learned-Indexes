@@ -4,4 +4,4 @@ venv/*
 /rsc/uniform/*
 
 /rsc/**/*.csv
-!/rsc/**/uni01.sorted.csv
+!/rsc/uniform/uni01.sorted.csv
