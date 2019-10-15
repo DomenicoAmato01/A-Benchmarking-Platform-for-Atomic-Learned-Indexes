@@ -125,5 +125,5 @@ for model in args.models:
 
     print(epsilon)
 
-    with open(args.outputPath+"trainingTime"+nn_name+".csv", "a+") as fp:
-        fp.write(args.inputFile+", "+str(elapsed)+", "+str(epsilon)+"\n")
+    with open(args.outputPath+"trainingTime".csv", "a+") as fp:
+        fp.write(args.inputFile+", "+nn_name+", "+str(elapsed)+", "+str(epsilon)+"\n")

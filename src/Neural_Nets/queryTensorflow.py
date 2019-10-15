@@ -5,6 +5,7 @@ import os
 import h5py
 import tensorflow as tf
 import numpy as np
+import time
 
 
 def mean_error(set_dim):
@@ -32,20 +33,18 @@ def max_error(set_dim):
 
 #Set Argument Parser for input information
 parser = argparse.ArgumentParser(description='Train NN for Datastructure index')
-parser.add_argument('-i', '--input', dest="inputFile", default="uni01.query10.bin.h5",
+parser.add_argument('-i', '--input', dest="inputFile", default="uni01.Query10.bin.h5",
                     help='Input file name')
-parser.add_argument('-id', '--inputDir', dest="inputDir", default="rsc/uniform/",
+parser.add_argument('-id', '--inputDir', dest="inputDir", default="rsc/uniform/Query",
 help='Input file path')
-parser.add_argument('-o', '--output', dest="outputPath", default="res/uniform/query",
+parser.add_argument('-o', '--output', dest="outputPath", default="res/uniform/",
                     help='Output file path')
-parser.add_argument('-m', '--model', dest="models", nargs="+", default="1", type=int, choices=range(1, 4),
+parser.add_argument('-m', '--model', dest="models", nargs="+", default=[1], type=int, choices=range(1, 4),
                     help='Model numbers: 1 -> No hidden Layer(Perceptron); 2 -> One hidden layer with 256 units; 3 -> Two hidden layer with 256 units')
 parser.add_argument('-md', '--modelsDir', dest="modelsPath", default="mdls/",
                     help='Params file path with file name')
 parser.add_argument('-p', '--params', dest="params", default="params.json",
                     help='Params file path with file name')
-#parser.add_argument('-perc', '--percentage', dest="percList", nargs="+", default="100",
-#                    help='Params file path with file name')
 
 args = parser.parse_args()
 
@@ -59,19 +58,13 @@ print(params)
 
 #Load Dataset
 bin_data=[]
-with h5py.File(args.inputDir+"/"+args.inputFile,'r') as f:
+with h5py.File(os.path.join(args.inputDir,args.inputFile),'r') as f:
     data = f.get('Sb') 
     bin_data = np.array(data, dtype=np.bool) # For converting to numpy array
-bin_data = np.transpose(bin_data)
-#bin_data = np.flip(bin_data,axis=1)
 dim_set = len(bin_data)
 print(dim_set)
 print(bin_data)
         
-
-#labels = np.linspace(1, len(bin_data), num=len(bin_data), dtype=np.float64)
-#labels = labels/len(bin_data)
-#labels = np.reshape(labels, (-1, 1))
 
 #Foreach models
 for model in args.models:
@@ -117,56 +110,3 @@ for model in args.models:
 
     with open(os.path.join(args.outputPath, "predictionTime.csv"), "a+") as fp:
         fp.write(args.inputFile+", "+nn_name+", "+str(elapsed)+"\n")
-
-'''
-        labels = []
-        with h5py.File('./Resource/'+distr+'/Query/file'+str(i)+distr+'Query'+perc+'_bin.mat','r') as f:
-            data = f.get('Sb') 
-            bin_data = np.array(data, dtype=np.bool) # For converting to numpy array
-        bin_data = np.transpose(bin_data)
-        bin_data = np.flip(bin_data,axis=1)
-        dim_set = len(bin_data)
-        labels = np.linspace(1, len(bin_data), num=len(bin_data), dtype=np.float64)
-        labels = labels/len(bin_data)
-        labels = np.reshape(labels, (-1, 1))
-
-
-        result1, predTime1 = kerasModel1.evaluate(data_query, labels_query)
-        result2, predTime2 = kerasModel2.evaluate(data_query, labels_query)
-        result3, predTime3 = kerasModel3.evaluate(data_query, labels_query)
-        
-        real = np.multiply(labels_query,dim_set)
-
-        pred1 = kerasModel1.predict(data_query)
-        error1 = np.abs(pred1[0] - real)
-        maxerr1 = np.max(error1)
-        meanerr1 = np.mean(error1)
-
-        pred2 = kerasModel2.predict(data_query)
-        error2 = np.abs(pred2[0] - real)
-        maxerr2 = np.max(error2)
-        meanerr2 = np.mean(error2)
-
-        pred3 = kerasModel3.predict(data_query)
-        error3 = np.abs(pred3[0] - real)
-        maxerr3 = np.max(error3)
-        meanerr3 = np.mean(error3)
-
-        result1[3] = meanerr1
-        result2[3] = meanerr2
-        result3[3] = meanerr3
-        result1[4] = maxerr1
-        result2[4] = maxerr2
-        result3[4] = maxerr3
-
-        result.append([(result1, predTime1),( result2, predTime2),(result3, predTime3)])
-        
-    epsilon = [np.ceil(result1[4]), np.ceil(result2[4]), np.ceil(result3[4])]
-
-
-    with open('./Result/'+distr+'/file'+str(i)+'/'+dirExpName+'/query_eval.pickle','wb') as fp:
-        pickle.dump(result, fp)
-
-    with open('./Result/'+distr+'/file'+str(i)+'/'+dirExpName+'/query_epsilon.pickle','wb') as fp:
-        pickle.dump(epsilon, fp)
-'''
