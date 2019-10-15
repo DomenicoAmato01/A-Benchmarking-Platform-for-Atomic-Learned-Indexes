@@ -63,20 +63,31 @@ with h5py.File(args.inputDir+"/"+args.inputFile,'r') as f:
     data = f.get('Sb') 
     bin_data = np.array(data, dtype=np.bool) # For converting to numpy array
 bin_data = np.transpose(bin_data)
-bin_data = np.flip(bin_data,axis=1)
+#bin_data = np.flip(bin_data,axis=1)
 dim_set = len(bin_data)
 print(dim_set)
 print(bin_data)
         
 
-labels = np.linspace(1, len(bin_data), num=len(bin_data), dtype=np.float64)
-labels = labels/len(bin_data)
-labels = np.reshape(labels, (-1, 1))
+#labels = np.linspace(1, len(bin_data), num=len(bin_data), dtype=np.float64)
+#labels = labels/len(bin_data)
+#labels = np.reshape(labels, (-1, 1))
 
 #Foreach models
 for model in args.models:
     #Load models from json
     if(model == 1):
+        json_file = open(args.modelsPath+"json/NN0.json", "r")
+        loaded_model = json_file.read()
+        json_file.close()
+
+        nn_model = tf.keras.models.model_from_json(loaded_model)
+        nn_model.build()
+        nn_model.summary()
+        nn_name="NN0"
+        nn_model.load_weights(args.outputPath+"/"+params["chk-dir"]+"/"+nn_name+"/best_model.h5py")
+
+    elif(model == 2):
         json_file = open(args.modelsPath+"json/NN1.json", "r")
         loaded_model = json_file.read()
         json_file.close()
@@ -87,7 +98,8 @@ for model in args.models:
         nn_name="NN1"
         nn_model.load_weights(args.outputPath+"/"+params["chk-dir"]+"/"+nn_name+"/best_model.h5py")
 
-    elif(model == 2):
+
+    elif(model==3):
         json_file = open(args.modelsPath+"json/NN2.json", "r")
         loaded_model = json_file.read()
         json_file.close()
@@ -97,18 +109,14 @@ for model in args.models:
         nn_model.summary()
         nn_name="NN2"
         nn_model.load_weights(args.outputPath+"/"+params["chk-dir"]+"/"+nn_name+"/best_model.h5py")
+    start = time.time()
+    nn_model.predict(x=bin_data)
+    end = time.time()
 
+    elapsed = end - start
 
-    elif(model==3):
-        json_file = open(args.modelsPath+"json/NN3.json", "r")
-        loaded_model = json_file.read()
-        json_file.close()
-
-        nn_model = tf.keras.models.model_from_json(loaded_model)
-        nn_model.build()
-        nn_model.summary()
-        nn_name="NN3"
-        nn_model.load_weights(args.outputPath+"/"+params["chk-dir"]+"/"+nn_name+"/best_model.h5py")
+    with open(os.path.join(args.outputPath, "predictionTime.csv"), "a+") as fp:
+        fp.write(args.inputFile+", "+nn_name+", "+str(elapsed)+"\n")
 
 '''
         labels = []

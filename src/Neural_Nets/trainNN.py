@@ -71,6 +71,16 @@ labels = np.reshape(labels, (-1, 1))
 for model in args.models:
     #Load models from json
     if(model == 1):
+        json_file = open("mdls/json/NN0.json", "r")
+        loaded_model = json_file.read()
+        json_file.close()
+
+        nn_model = tf.keras.models.model_from_json(loaded_model)
+        nn_model.build()
+        nn_model.summary()
+        nn_name="NN0"
+
+    elif(model == 2):
         json_file = open("mdls/json/NN1.json", "r")
         loaded_model = json_file.read()
         json_file.close()
@@ -79,8 +89,7 @@ for model in args.models:
         nn_model.build()
         nn_model.summary()
         nn_name="NN1"
-
-    elif(model == 2):
+    elif(model==3):
         json_file = open("mdls/json/NN2.json", "r")
         loaded_model = json_file.read()
         json_file.close()
@@ -89,15 +98,6 @@ for model in args.models:
         nn_model.build()
         nn_model.summary()
         nn_name="NN2"
-    elif(model==3):
-        json_file = open("mdls/json/NN3.json", "r")
-        loaded_model = json_file.read()
-        json_file.close()
-
-        nn_model = tf.keras.models.model_from_json(loaded_model)
-        nn_model.build()
-        nn_model.summary()
-        nn_name="NN3"
     else:
         raise "No model Found"
         
