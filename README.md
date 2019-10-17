@@ -4,7 +4,8 @@
     .
     ├── src                    # Source Directory
     |   ├── Neural_Nets        # Neural Nets Scripts          
-    │   └── Paco-Lcp           # Paco Lcp
+    │   ├── Paco-Lcp           # Paco Lcp
+    │   └── BPtree             # B+Tree
     ├── rsc                    # Resource Directory
     │   └── uniform            # Uniform Dataset
     |── res                    # Results Directory
@@ -80,7 +81,8 @@ An order-preserving minimal perfect hash function , that maps bijectively a set 
 java -cp ./lib paco.PACO -f PATH_TO_DATASET_FILE
 
 arguments:
-  -f PATH_TO_DATASET_FILE Path to the dataset file
+  -f PATH_TO_DATASET_FILE 
+  		Path to the dataset file
 ```
 
 > Query
@@ -88,8 +90,10 @@ arguments:
 java -cp ./lib paco.PACO -f PATH_TO_DATASET_FILE -q PATH_TO_QUERY_FILE
 
 arguments:
-  -f PATH_TO_DATASET_FILE Path to the csv dataset file
-  -q PATH_TO_QUERY_FILE Path to the csv query dataset file
+  -f PATH_TO_DATASET_FILE 
+  		Path to the csv dataset file
+  -q PATH_TO_QUERY_FILE 
+  		Path to the csv query dataset file
 ```
 
 ### LCP 
@@ -99,16 +103,47 @@ A monotone minimal perfect hash function that map the keys of a lexicographicall
 ```
 java -cp ./lib lcp.LCP -f PATH_TO_DATASET_FILE 
 arguments:
-  -f PATH_TO_DATASET_FILE Path to the dataset file
+  -f PATH_TO_DATASET_FILE 
+  		Path to the dataset file
 ```
 
 > Query
 ```
 java -cp ./lib lcp.LCP -f PATH_TO_DATASET_FILE -q PATH_TO_QUERY_FILE
-  -f PATH_TO_DATASET_FILE Path to the csv dataset file
-  -q PATH_TO_QUERY_FILE Path to the csv query dataset file
+  -f PATH_TO_DATASET_FILE 
+  		Path to the csv dataset file
+  -q PATH_TO_QUERY_FILE 
+  		Path to the csv query dataset file
 ```
 
 ### B+tree
+A variants of the B-tree used for indexing a set of keys to the corresponding data where all leaves of the tree appear at the same
+level and they are organized as a doubly linked list.  The [source code](src/B+Tree) is written in C++ and it exploits the provided [libraries](src/BPtree/stx). In order to create executables use the following commands: 
+
+```
+cmake -DCMAKE_CXX_COMPILER=/usr/bin/g++-7 CMakeLists.txt
+make
+```
+
+> Creation
+```
+./IndexBtree256 PATH_TO_DATASET_FILE   # Page Block 256 bytes
+./IndexBtree8192 PATH_TO_DATASET_FILE   # Page Block 8192 bytes
+arguments:
+  PATH_TO_DATASET_FILE 
+  		Path to the dataset file
+```
+
+> Query
+```
+./IndexBtree256 PATH_TO_DATASET_FILE PATH_TO_QUERY_FILE  # Page Block 256 bytes
+./IndexBtree8192 PATH_TO_DATASET_FILE PATH_TO_QUERY_FILE  # Page Block 8192 bytes
+arguments:
+  PATH_TO_DATASET_FILE 
+  		Path to the csv dataset file
+  PATH_TO_QUERY_FILE 
+  		Path to the csv query dataset file
+```
+
 ### CSS Tree
 ### Self Adjusting Binary Tree
