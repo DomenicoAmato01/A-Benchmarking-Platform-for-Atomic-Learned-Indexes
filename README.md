@@ -74,6 +74,42 @@ Multiple params '-m'
 
 ### Query Scripts
 
+Querying are performed with four different methods to compare different implementation performance.
+
+#### Tensorflow API
+
+The scripts was written in python using Tensorflow Keras high-level API as in the Training Phase.  
+
+```
+queryTensorflow.py  [-h] [-i INPUTFILE] [-id INPUTDIR] [-o OUTPUTPATH]
+                    [-m {1,2,3} [{1,2,3} ...]] [-md MODELSPATH]
+                    [-p PARAMS]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i INPUTFILE, --input INPUTFILE
+                        Input file name
+                        default = 'uni01.Query10.bin.h5'
+  -id INPUTDIR, --inputDir INPUTDIR
+                        Input file path
+                        default = 'rsc/uniform/Query'
+  -o OUTPUTPATH, --output OUTPUTPATH
+                        Output file path
+                        default = 'res/uniform/'
+  -m {1,2,3} [{1,2,3} ...], --model {1,2,3} [{1,2,3} ...]
+                        Model numbers: 1 -> No hidden Layer(Perceptron); 2 ->
+                        One hidden layer with 256 units; 3 -> Two hidden layer
+                        with 256 units
+                        default = 1
+  -md MODELSPATH, --modelsDir MODELSPATH
+                        Params file path with file name
+                        default = 'mdls/'
+  -p PARAMS, --params PARAMS
+                        Params file path with file name
+                        default = 'params.json'
+```
+
+
 ## Standard Data Structures
 ### Paco
 An order-preserving minimal perfect hash function , that maps bijectively a set of ordered keys to their ordinal position position in a given list. It assumes that keys to be hashed are ordered. The [source code](src/Paco-Lcp/paco) is written in Java and it exploits the provided [libraries](src/Paco-Lcp/lib).
