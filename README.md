@@ -69,6 +69,8 @@ optional arguments:
                         default='mdls/params.json'
 ```
 
+Multiple params '-m' 
+
 ### Query Scripts
 
 ## Standard Data Structures

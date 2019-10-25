@@ -108,5 +108,9 @@ for model in args.models:
 
     elapsed = end - start
 
+    if(not os.path.exists(os.path.join(args.outputPath, "predictionTime.csv"))):
+        with open(os.path.join(args.outputPath, "predictionTime.csv"), "w") as fp:
+            fp.write("Filename, # Elements ,NN Model, Predictions Time (s)\n")
+
     with open(os.path.join(args.outputPath, "predictionTime.csv"), "a+") as fp:
-        fp.write(args.inputFile+", "+nn_name+", "+str(elapsed)+"\n")
+        fp.write(args.inputFile+", "+str(dim_set)+', '+nn_name+", "+str(elapsed)+"\n")

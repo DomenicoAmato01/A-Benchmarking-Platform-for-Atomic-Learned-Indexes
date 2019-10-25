@@ -4,6 +4,7 @@ import numpy as np
 import h5py 
 import json
 import time
+import os
 
 def mean_error(set_dim):
     def mean_error_metric(y_true, y_pred):
@@ -125,5 +126,9 @@ for model in args.models:
 
     print(epsilon)
 
-    with open(args.outputPath+"trainingTime.csv", "a+") as fp:
-        fp.write(args.inputFile+", "+nn_name+", "+str(elapsed)+", "+str(epsilon)+"\n")
+    if(not os.path.exists(os.path.join(args.outputPath, "trainingTime.csv"))):
+        with open(os.path.join(args.outputPath, "trainingTime.csv"), "w") as fp:
+            fp.write("Filename, # Elements ,NN Model, Training Time (s), Max Error (epsilon)\n")
+
+    with open(os.path.join(args.outputPath, "trainingTime.csv"), "a+") as fp:
+        fp.write(args.inputFile+", "+str(dim_set)+", "+nn_name+", "+str(elapsed)+", "+str(epsilon)+"\n")
