@@ -109,6 +109,12 @@ optional arguments:
                         default = 'params.json'
 ```
 
+#### Cuda GPU
+
+#### Cuda TPU
+
+#### Intel CPU
+
 
 ## Standard Data Structures
 ### Paco
