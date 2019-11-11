@@ -1,4 +1,4 @@
-# Benchmarking Platform for Index Neural Nets
+# A Benchmarking Platform for Atomic Learned Indexes
 
 This repository provides a benchmarking platform to evaluate how Feed Forward Neural Networks can be effectively used as index data structures. That is, how well in terms of time and space, those Networks can solve the well known predecessor problem, i.e., searching for an element in a sorted table. In theory, those networks, with RELU activators,  are able to approximate any function [ ] , including the one needed to solve predecessor search. Then, a simple binary search concludes the task.  
   
