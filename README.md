@@ -34,6 +34,6 @@ The datsets used for benchmarking are in ….
  The code provided here presents different execution scenarios, including GPU Cuda Cores and Tensor Core
  
  ## Bibliography
- 1 Hanin, B. and Sellke, M. (2017). Approximating continuous functions by ReLU nets of minimal
+ [1] Hanin, B. and Sellke, M. (2017). Approximating continuous functions by ReLU nets of minimal
 width. arXiv preprint arXiv:1710.11278.
 
