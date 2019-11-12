@@ -31,6 +31,6 @@ The datsets used for benchmarking are in ….
     
  ## Implementations
  
- All implementations details are provides inside the models source directory
-
+ All implementations and execution details are provided inside the source directory.  
+ The code provided here presents different execution scenarios, including GPU Cuda Cores and Tensor Core
 
