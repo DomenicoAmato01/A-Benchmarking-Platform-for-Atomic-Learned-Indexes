@@ -6,7 +6,7 @@ The scenario we have considered is in memory data and batch queries, which is a 
   
 We include  
   
-—three neural networks…  
+—3 [Neural Networks](https://github.com/DomenicoAmato01/A-Benchmarking-Platform-for-Atomic-Learned-Indexes/tree/master/src/Neural_Nets) with different number of layers 
 -strutture dati …  
 -scripting to execute the code provided here in different scenarios, including GPU Cuda Cores Tensor Core.  
   
