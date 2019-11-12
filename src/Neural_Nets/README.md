@@ -1,5 +1,5 @@
 ## Neural Networks
-### Create Datasets
+### Transforming Datasets
 In order to train Neural Nets and querying data, csv files, containing one element for each column, must be converted in hdf5 files containing their 64-bit binary rappresentation.
 
 ```
