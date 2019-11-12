@@ -15,17 +15,15 @@ The datsets used for benchmarking are in ….
   
 ## Directory Structure
     .
-    ├── src                    # Source Directory
-    |   ├── Neural_Nets        # Neural Nets Scripts          
-    │   ├── Paco-Lcp           # Paco Lcp
-    │   ├── BPtree             # B+Tree
-    │	  ├── CSS                # CSS Tree
-    │   └── SABT               # Self Adjusting Binary Tree
-    ├── rsc                    # Resource Directory
-    │   └── uniform            # Uniform Dataset
-    |── res                    # Results Directory
-    |   └──uniform             # Uniform Dataset
-    └── mdls                   # Models Directory   
-        └──json                # Neural Nets Json 
+    └── src                    # Source Directory
+        ├── Neural_Nets           # Neural Nets Scripts Directory
+              └── mdls                # Models Directory   
+                    └──json               # Neural Nets Json
+        └── Data_Structures    # Data Structures Main Directory
+              ├── Paco-Lcp        # Paco Lcp
+              ├── BPtree          # B+Tree
+    	        ├── CSS             # CSS Tree
+              └── SABT            # Self Adjusting Binary Tree
+     
 
 
