@@ -11,8 +11,7 @@ We include
   * [B+Trees](https://github.com/DomenicoAmato01/A-Benchmarking-Platform-for-Atomic-Learned-Indexes/tree/master/src/Data_Structures/BPtree)
   * [Css-Trees](https://github.com/DomenicoAmato01/A-Benchmarking-Platform-for-Atomic-Learned-Indexes/tree/master/src/Data_Structures/CSS)
   * [Paco and LCP](https://github.com/DomenicoAmato01/A-Benchmarking-Platform-for-Atomic-Learned-Indexes/tree/master/src/Data_Structures/Paco-Lcp)
-  * [Self Adjusting Binary Trees](https://github.com/DomenicoAmato01/A-Benchmarking-Platform-for-Atomic-Learned-Indexes/tree/master/src/Data_Structures/SABT)  
--scripting to execute the code provided here in different scenarios, including GPU Cuda Cores Tensor Core.  
+  * [Self Adjusting Binary Trees](https://github.com/DomenicoAmato01/A-Benchmarking-Platform-for-Atomic-Learned-Indexes/tree/master/src/Data_Structures/SABT)    
   
   
 The datsets used for benchmarking are in ….   
