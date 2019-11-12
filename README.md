@@ -17,8 +17,8 @@ The datsets used for benchmarking are in ….
     .
     └── src                    # Source Directory
         ├── Neural_Nets           # Neural Nets Scripts Directory
-        ├     └── mdls                # Models Directory   
-        ├          └──json               # Neural Nets Json
+        |     └── mdls                # Models Directory   
+        |          └──json               # Neural Nets Json
         └── Data_Structures    # Data Structures Main Directory
               ├── Paco-Lcp        # Paco Lcp
               ├── BPtree          # B+Tree
