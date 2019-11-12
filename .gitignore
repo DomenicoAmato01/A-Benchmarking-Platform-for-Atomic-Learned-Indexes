@@ -1,6 +1,7 @@
 venv
 venv/*
-/rsc/
-/rsc/*
-/res/
-/res/*
+res/
+res/*
+rsc/
+rsc/*
+
