@@ -4,7 +4,7 @@ This repository provides a benchmarking platform to evaluate how Feed Forward Ne
   
 The scenario we have considered is in memory data and batch queries, which is a fundamental one, as outlined in [ CSS].  
   
-We include  
+We include:  
   
 * 3 [Neural Networks](https://github.com/DomenicoAmato01/A-Benchmarking-Platform-for-Atomic-Learned-Indexes/tree/master/src/Neural_Nets) with different number of layers  
 * Different kind of Data Structures
