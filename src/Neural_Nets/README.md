@@ -138,7 +138,7 @@ Dataset, Query, #Elements, Mult Time(s), Bias Time (s), Relu Time(s), Tot Time(s
 
 where
 
-|               |               |
+|     Field          |      Description         |
 | ------------- | ------------- |
 | Dataset       | Dataset Name  |
 | Query         | Query Name    |
