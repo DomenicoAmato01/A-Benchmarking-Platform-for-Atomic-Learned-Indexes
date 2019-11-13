@@ -5,6 +5,9 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
+#include <string>
+#include <sstream>
 
 /*
 *
@@ -23,10 +26,23 @@ long readMatrix(char* fn, double **data, int m, float perc){
     FILE* fp; 
     long num = 0;
     fp = fopen( fn, "r" );
+    if(fp == NULL){
+        std::stringstream ss;
+        ss << "Opening File Error: " << errno;
+        
+        throw ss.str();
+    } 
 
     fscanf(fp, "%ld\n", &num);
 
     *data = (double*)mkl_malloc(sizeof(double)*(perc*num*m), 64);
+
+    if(data[0] == NULL){
+        std::stringstream ss;
+        ss << "Allocation InputData Failed. Aborting...";
+        
+        throw ss.str();
+    }
 
     for(int i = 0; i<perc*num; i++){
         for(int j = 0; j<64;j++){
@@ -43,8 +59,21 @@ void readNNParams(char* fn, double **data, int m){
 
     FILE* fp;
     fp = fopen( fn, "r" );
+    if(fp == NULL){
+        std::stringstream ss;
+        ss << "Opening File Error: " << errno;
+        
+        throw ss.str();
+    } 
 
     *data = (double*)mkl_malloc(sizeof(double)*(m), 64);
+
+    if(data[0] == NULL){
+        std::stringstream ss;
+        ss << "Allocation Weights Failed. Aborting...";
+        
+        throw ss.str();
+    }
 
     for(int j = 0; j<m;j++){
         fscanf(fp, "%lf\n", &data[0][j]);
@@ -57,9 +86,21 @@ void readNNBias(char* fn, double **data, int n, int m){
     FILE* fp;
     fp = fopen( fn, "r" );
 
+    if(fp == NULL){
+        std::stringstream ss;
+        ss << "Opening File Error: " << errno;
+        
+        throw ss.str();
+    } 
+
     *data = (double*)mkl_malloc(sizeof(double)*(n*m), 64);
 
-    
+    if(data[0] == NULL){
+        std::stringstream ss;
+        ss << "Allocation Bias Failed. Aborting...";
+        
+        throw ss.str();
+    }
          
     for(int j = 0; j<m;j++){
         fscanf(fp, "%lf\n", &data[0][j]);
@@ -69,4 +110,27 @@ void readNNBias(char* fn, double **data, int n, int m){
         }
     }
     fclose(fp);
+}
+
+//Print matrix A(nr_rows_A, nr_cols_A) storage in column-major format
+void print_matrix(const float *A, int nr_rows_A, int nr_cols_A) {
+
+	for(int i = 0; i < nr_rows_A; ++i){
+		for(int j = 0; j < nr_cols_A; ++j){
+		   std::cout << A[j * nr_rows_A + i] << " ";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+}
+
+void print_matrix_float(const float *A, int nr_rows_A, int nr_cols_A) {
+
+	for(int i = 0; i < nr_rows_A; ++i){
+		for(int j = 0; j < nr_cols_A; ++j){
+		   std::cout << A[j * nr_rows_A + i] << " ";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
 }
