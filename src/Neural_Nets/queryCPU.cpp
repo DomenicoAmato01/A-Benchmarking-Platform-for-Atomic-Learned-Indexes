@@ -116,7 +116,56 @@ int prediction(char *fn,char *wfn1,char *bfn1, char *output, char* dataName, int
     return 0;
 }
 
-int main(){
+int main(int argc, char * argv[]){
+
+    char *dataName, *queryName;
+
+    //Print help
+    if(cmdOptionExists(argv, argv+argc, "-h"))
+    {
+        std::cout << "Help"<< std::endl;
+        return 0;
+    }
+
+    //Check Dataset name parameter
+    if(!cmdOptionExists(argv, argv+argc, "-d"))
+    {
+        std::cerr << "Dataset name missed...Aborting..." << std::endl;
+        return 1;
+    }else{
+        dataName = getCmdOption(argv, argv + argc, "-d");
+        if(!dataName || !strncmp ( dataName, "-", 1 )){
+            std::cerr << "Dataset name missed...Aborting..." << std::endl;
+            return 1;
+        }
+    }
+
+    //Check Query name parameter
+    if(!cmdOptionExists(argv, argv+argc, "-q"))
+    {
+        std::cerr << "Query name missed...Aborting..." << std::endl;
+        return 1;
+    }else{
+        queryName = getCmdOption(argv, argv + argc, "-q");
+        if(!queryName || !strncmp ( queryName, "-", 1 )){
+            std::cerr << "Query name missed...Aborting..." << std::endl;
+            return 1;
+        }
+    }
+
+    //Check Output filename parameter
+    if(!cmdOptionExists(argv, argv+argc, "-o"))
+    {
+        std::cerr << "Output filename missed...Aborting..." << std::endl;
+        return 1;
+    }else{
+        queryName = getCmdOption(argv, argv + argc, "-o");
+        if(!queryName || !strncmp ( queryName, "-", 1 )){
+            std::cerr << "Output filename missed...Aborting..." << std::endl;
+            return 1;
+        }
+    }
+    
 
 }
 
