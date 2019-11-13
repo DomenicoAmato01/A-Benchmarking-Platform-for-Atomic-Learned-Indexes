@@ -148,5 +148,6 @@ where
 | Relu Time(s)  | Time to perform Relu Activation Layers expressed in seconds    |
 | Tot Time(s)   | Sum of the time below    |
 | Mean Time(s)  | Tot Time / #Elements   |
+| Mean Time(s)  | Tot Time / #Elementsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss   |
 
 
