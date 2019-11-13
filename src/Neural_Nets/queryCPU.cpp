@@ -10,6 +10,7 @@
 #include <iostream>
 #include <time.h>
 #include <string.h>
+#include <algorithm>
 
 #include "lib/util.h"
 
@@ -102,15 +103,12 @@ int prediction(char *fn,char *wfn1,char *bfn1, char *output, char* dataName, int
     mkl_free(B);
     mkl_free(C);
 
-    printf("TIMER:\n");
     double tot = 0;
     for(int t=0; t<3; t++){
         tot +=timer[t];
-        printf("%1.10lf\n", timer[t]);
     }
-    printf("Tot:%1.10lf\n", tot);
 
-    printf("Scrivo Risultati\n");
+    std::cout << "Saving Result Time" << std::endl;
 	fprintf(out_fp, "%s,%d,%d,%d,%1.9lf,%1.9lf,%1.9lf,%1.9lf,%1.9lf\n" , dataName, query, nElem, nQuery, timer[0], timer[1], timer[2], tot, tot/nQuery);
 
 	fclose(out_fp);
