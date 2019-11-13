@@ -1,0 +1,2 @@
+Dataset, Query, #Elementi, Mult Time(s), Bias Time (s), Relu Time(s), Tot Time(s), Mean Time(s)
+uni01,10,52,0.000009061,0.000003761,0.000000268,0.000013090,0.000000252

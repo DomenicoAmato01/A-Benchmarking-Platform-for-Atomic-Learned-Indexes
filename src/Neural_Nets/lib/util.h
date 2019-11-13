@@ -21,7 +21,8 @@
 //Time Resolution (1e9 is nanoseconds) 
 #define RES 1e9
 
-long readMatrix(char* fn, double **data, int m, float perc){
+
+long readMatrix(const char* fn, double **data, int m, float perc){
 
     FILE* fp; 
     long num = 0;
@@ -55,7 +56,7 @@ long readMatrix(char* fn, double **data, int m, float perc){
     return perc*num;
 }
 
-void readNNParams(char* fn, double **data, int m){
+void readNNParams(const char* fn, double **data, int m){
 
     FILE* fp;
     fp = fopen( fn, "r" );
@@ -81,7 +82,7 @@ void readNNParams(char* fn, double **data, int m){
     fclose(fp);
 }
 
-void readNNBias(char* fn, double **data, int n, int m){
+void readNNBias(const char* fn, double **data, int n, int m){
 
     FILE* fp;
     fp = fopen( fn, "r" );

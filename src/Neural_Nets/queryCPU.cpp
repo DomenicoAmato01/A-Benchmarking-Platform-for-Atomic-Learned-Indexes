@@ -14,7 +14,7 @@
 
 #include "lib/util.h"
 
-int prediction(char *fn,char *wfn1,char *bfn1, char *output, char* dataName, int query, int nElem, int nQuery){
+int prediction(const char *fn, const char *wfn1,const char *bfn1, const char *output,const char* dataName, const char * query){
     
     double *A, *B, *C, *bias;
     int m, n, k, i, j;
@@ -26,12 +26,24 @@ int prediction(char *fn,char *wfn1,char *bfn1, char *output, char* dataName, int
     float perc = 1;
 
     FILE* out_fp;
+    bool flagExist = true;
+
+    out_fp = fopen( output, "w+" );
+    if(out_fp == NULL || fgetc(out_fp) == EOF){
+        flagExist = false; 
+    }
+    fclose(out_fp);
+ 
     out_fp = fopen( output, "a+" );
     if(out_fp == NULL){ 
         std::stringstream ss;
         ss << "Opening File Error: " << errno;
         
         throw ss.str();
+    }
+
+    if(!flagExist){
+       fprintf(out_fp, "Dataset, Query, #Elementi, Mult Time(s), Bias Time (s), Relu Time(s), Tot Time(s), Mean Time(s)\n"); 
     }
 
     //Binary Resolution and number of neurons 
@@ -45,7 +57,7 @@ int prediction(char *fn,char *wfn1,char *bfn1, char *output, char* dataName, int
         m = readMatrix(fn, &A, k, perc);
         readNNParams(wfn1, &B, k);
         readNNBias(bfn1, &bias, m, n);
-    }catch(const char* msg){
+    }catch(std::string msg){//const char* msg){
 
         std::cerr << msg << std::endl;
         return -1;
@@ -109,7 +121,7 @@ int prediction(char *fn,char *wfn1,char *bfn1, char *output, char* dataName, int
     }
 
     std::cout << "Saving Result Time" << std::endl;
-	fprintf(out_fp, "%s,%d,%d,%d,%1.9lf,%1.9lf,%1.9lf,%1.9lf,%1.9lf\n" , dataName, query, nElem, nQuery, timer[0], timer[1], timer[2], tot, tot/nQuery);
+	fprintf(out_fp, "%s,%s,%d,%1.9lf,%1.9lf,%1.9lf,%1.9lf,%1.9lf\n" , dataName, query, m, timer[0], timer[1], timer[2], tot, tot/m);
 
 	fclose(out_fp);
 
@@ -119,6 +131,8 @@ int prediction(char *fn,char *wfn1,char *bfn1, char *output, char* dataName, int
 int main(int argc, char * argv[]){
 
     char *dataName, *queryName, *outputFn;
+
+    std::cout << "Check Parameters..." << std::endl;
 
     //Print help
     if(cmdOptionExists(argv, argv+argc, "-h"))
@@ -165,7 +179,35 @@ int main(int argc, char * argv[]){
             return 1;
         }
     }
+
+    std::stringstream ss;
+    std::string fn, wFn, bFn, oFn, qFn;
+    ss.str("");
+    ss.clear();
+
+    ss << dataName << "Query" << queryName << "_bin.dat";
+    fn = ss.str();
+    ss.str("");
+    ss.clear();
+
+
+    ss << "weights_" << dataName << ".dat";
+    wFn = ss.str();
+    ss.str("");
+    ss.clear();
+
+    ss << "bias_" << dataName << ".dat";
+    bFn = ss.str();
+    ss.str("");
+    ss.clear();
+
+    std::cout << "Starting Prediction..." << std::endl;
+    prediction(fn.c_str(), wFn.c_str(), bFn.c_str(), outputFn, dataName, queryName);
+
     
+
+
+
 
 }
 
