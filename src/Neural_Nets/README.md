@@ -99,3 +99,54 @@ optional arguments:
 #### Cuda TPU
 
 #### Intel CPU
+
+The scripts was written in C++ and use the intel Math Kernel Library.
+Requirements are:
+* Intel CPU
+* g++ compiler version 7 or later
+* Intel mkl library installed
+
+To compile use :
+
+```
+
+g++ queryCPU.cpp -o [scriptName] -Wl,--start-group [mkl_dir]/libmkl_intel_lp64.a [mkl_dir]/libmkl_sequential.a [mkl_dir]/libmkl_core.a -Wl,--end-group -lpthread -lm -ldl
+
+```
+
+To run the compiled script use;
+
+```
+
+./[scriptName] -d dataName -q queryName -o outputName [-h]
+
+```
+
+For example:
+
+./queryCPU -d uni01 -q 10 -o predictionTime 
+
+search in the current directory a file with name uni01Query10_bin.dat and produce a csv file named predictionTime.csv  
+  
+Output file structures is:
+
+```
+
+Dataset, Query, #Elements, Mult Time(s), Bias Time (s), Relu Time(s), Tot Time(s), Mean Time(s)
+
+```
+
+where
+
+|               |               |
+| ------------- | ------------- |
+| Dataset       | Dataset Name  |
+| Query         | Query Name    |
+| #Elements      | Number of Elements in Query    |
+| Mult Time(s)  | Time to perform Matrix Multiplication expressed in seconds    |
+| Bias Time(s)  | Time to perform Bias Sum expressed in seconds    |
+| Relu Time(s)  | Time to perform Relu Activation Layers expressed in seconds    |
+| Tot Time(s)   | Sum of the time below    |
+| Mean Time(s)  | Tot Time / #Elements   |
+
+

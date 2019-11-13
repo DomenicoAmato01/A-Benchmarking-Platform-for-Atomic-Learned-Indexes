@@ -42,7 +42,7 @@ int prediction(const char *fn, const char *wfn1,const char *bfn1, const char *ou
         throw ss.str();
     }
     if(!flagExist){
-       fprintf(out_fp, "Dataset, Query, #Elementi, Mult Time(s), Bias Time (s), Relu Time(s), Tot Time(s), Mean Time(s)\n"); 
+       fprintf(out_fp, "Dataset, Query, #Elements, Mult Time(s), Bias Time (s), Relu Time(s), Tot Time(s), Mean Time(s)\n"); 
     }
     
 
