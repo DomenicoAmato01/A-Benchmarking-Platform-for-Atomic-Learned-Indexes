@@ -8,6 +8,7 @@
 #include <errno.h>
 #include <string>
 #include <sstream>
+#include <algorithm>
 
 /*
 *
