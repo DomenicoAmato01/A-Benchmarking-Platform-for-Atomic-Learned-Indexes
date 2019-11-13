@@ -118,7 +118,7 @@ int prediction(char *fn,char *wfn1,char *bfn1, char *output, char* dataName, int
 
 int main(int argc, char * argv[]){
 
-    char *dataName, *queryName;
+    char *dataName, *queryName, *outputFn;
 
     //Print help
     if(cmdOptionExists(argv, argv+argc, "-h"))
@@ -159,8 +159,8 @@ int main(int argc, char * argv[]){
         std::cerr << "Output filename missed...Aborting..." << std::endl;
         return 1;
     }else{
-        queryName = getCmdOption(argv, argv + argc, "-o");
-        if(!queryName || !strncmp ( queryName, "-", 1 )){
+        outputFn = getCmdOption(argv, argv + argc, "-o");
+        if(!outputFn || !strncmp ( outputFn, "-", 1 )){
             std::cerr << "Output filename missed...Aborting..." << std::endl;
             return 1;
         }
