@@ -100,7 +100,7 @@ optional arguments:
 
 #### Intel CPU
 
-The scripts was written in C++ and use the intel Math Kernel Library.
+The scripts was written in C++ and use the intel Math Kernel Library.  
 Requirements are:
 * Intel CPU
 * g++ compiler version 7 or later
